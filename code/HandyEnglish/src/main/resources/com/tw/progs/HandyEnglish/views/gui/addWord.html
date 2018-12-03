@@ -6,6 +6,30 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+  <vaadin-vertical-layout>
+   <vaadin-panel caption="AddWord" size-full _id="pnlAddWord" :expand>
+    <vaadin-vertical-layout height="512px">
+     <vaadin-form-layout>
+      <vaadin-text-field caption="word:" width-full tabindex="1" _id="txtWord"></vaadin-text-field>
+      <vaadin-text-field caption="equiv:" width-full tabindex="2" _id="txtEquiv"></vaadin-text-field>
+      <vaadin-text-field caption="defn:" width-full tabindex="3" _id="txtDefn"></vaadin-text-field>
+      <vaadin-text-field caption="exampl:" width-full tabindex="4" _id="txtExmpl"></vaadin-text-field>
+      <vaadin-combo-box caption="category:" width-full tabindex="5" data-item-type="java.lang.String" _id="cmbCategory">
+       <option item="Option1">Option 1</option>
+       <option item="Option2">Option 2</option>
+       <option item="Option3">Option 3</option>
+      </vaadin-combo-box>
+      <vaadin-horizontal-layout>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e762" style-name="friendly small" width="128px" tabindex="6" plain-text _id="btnSend">
+         send 
+       </vaadin-button>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e811" style-name="small danger" width="128px" tabindex="7" plain-text _id="btnReset">
+         reset 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+     </vaadin-form-layout>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
  </body>
 </html>
