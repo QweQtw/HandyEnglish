@@ -87,8 +87,7 @@ public class selectProfileHandler extends selectProfile{
 
     private void setListeners() {
 
-        btnLogin.addClickListener(event->{
-            String email = txtLoginEmail.getValue().trim();
+        btnLogin.addClickListener(event->{ String email = txtLoginEmail.getValue().trim();
             String pass = CipherOps.MD5(pssLoginPass.getValue().trim());
 
             ProfilesDAO profile = pm.findUserByeMail(email);
@@ -97,7 +96,7 @@ public class selectProfileHandler extends selectProfile{
                 checkRemeberMe();
                 redirection("mainPage");
             }else{
-                reset(true, "");
+                reset(true, "nieprawidłowe dane logowania");
             }
         });
 
