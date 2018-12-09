@@ -1,0 +1,214 @@
+---===;languages separated with ;
+polski;english
+język;language
+
+nieprawidłowe dane logowania;invalid credentials
+Niepoprawne dane rejestracyjne;invalid registartion data
+Nie można zarejestrować użytkownika! (Spróbuj później);Problem with user registration!(Please try later)
+Upewnij się że hasło składa się co najmniej z 4 znaków, posaida cyfry, duże i małe litery i wpisałeś je dwukrotnie tak samo;Please be sure that password consist of 4 chars, digits, capital and small leters and you entered it twice.
+Taki Użytkownik już istnieje;Specified user already exists
+
+---===;messages
+problem z danymi;problem with input data
+nieprawidłowe imię nazwisko (nie może być puste);invalid firs last name (can't be empty)
+nieprawidłowe hasło (nie może byc puste);invalid password (can't be empty)
+nieprawidłowy adres e-mail!;invalid e-mail!
+nieprawidłowy adres e-mail (nie może być pusty);invalid e-mail (can't be empty)
+nieprawidłowe opis (nie może być pusty);invalid description (can't be empty)
+nieprawidłowa nazwa grupy (nie może być pusta);invalid group name (can't be empty)
+nieprawidłowa nazwa typu (nie może być pusta);invalid type name (can't be empty)
+nieprawidłowa nazwa akcji (nie może być pusta);invalid action name (can't be empty)
+problem zapisu (za chwilę spróbuj jeszcze raz);saving problem (please try again for a moment)
+nie ma nic do zapisu;nothing to save
+jeszcze nie zaimplementowane;not implemented yet
+coś poszło nie tak!;something went wrong!
+wystąpił błąd:;error occurred:
+nieznany błąd;unknown error
+nieoczekiwana operacja <br/>lub funkcjonalność jeszcze niezaimplementowana <br/>skontaktuj się z administratorem;unexpected operation <br/>or not implememted yet <br/>contact with web admin
+nieprawidłowa nazwa projektu (nie może być pusta);invalid project name (can't be empty)
+nieprawidłowa wartość dla rabatu (wartości 1-100);invalid discount value(only number from 1-100)
+nieprawidłowy min okres rabatu (nie może być pusty);invalid min discount period (can't be empty)
+nieprawidłowy max okres rabatu (nie może być pusty);invalid max discount period (can't be empty)
+obiekt zablokowany przez: ;object locked by:
+operacja niemożliwa;can't do this
+Problem z połączeniem do DB!;DB connection problem!
+Problem z odczytem pliku!;File readin problem!
+potwierdż!;confirm!
+informacja;information
+brak uprawnień do operacji!;no privleges for this operation!
+tech ID;tech ID
+
+
+---===;klawisze
+ok;ok
+anuluj;cancel
+dodaj;add
+nowy;new
+edytuj;edit
+deaktywuj;deactivate
+aktywuj;activate
+szczegóły;details
+zapisz;save
+przypisz grupy;assign groups
+wybierz;select
+cofnij;revert
+status;status
+użytkownik;user
+aktualnie zalogowani;currently loged users
+wyloguj;logout
+odśwież;refresh
+zamknij;close
+
+---===;about
+historia zmian aplikacji:;list of application changes:
+ostatnia aktualizacja aplikacji;application last update
+nazwa aplikacji;application name
+wersja aplikacji;application version
+data zmiany; date of change
+wersja aplikacji;application version
+opis zmiany;change description
+
+---===;users
+lista użytkowników;users list
+imie nazwisko;first,last name
+e-mail;e-mail
+opis;description
+hasło;password
+problem kodowania hasła;problem with password encoding
+e-mail już używany przez innego uytkownika;e-mail already used for another user
+hasło nieakceptowalne lub powtórzone;password not acceptable or duplicated
+ostatnich haseł jest pamiętane;last passwords are saved
+ostatnie hasła są pamiętane;last passwords are saved
+
+---===;groups
+lista grup;groups list
+nazwa grupy;group name
+grupa;group
+zaznacz;select
+nieunikalna nazwa grupy;group name is not unique
+grupowanie użytkowników;assign groups for user
+
+---===;configs
+zrestartuj aplikację;application restart
+powrót do pulpitu;back to dashboard
+historia aktualizacji;updates history
+powrót do konfiguracji;back to config
+ustawienia użytkownika;user settings
+ustawienia globalne;global settings
+ustawienia aplikacji;configuration of application
+ustawienia konfiguracyjne;maintenance settings
+ustawienia wdrożeniowe;deployments settings
+zaloguj się jako admin;login as admin
+projekty;projects
+zmień hasło;change password
+schematy kolorów:;themes:
+
+---===;loginService
+zaloguj się;logIn please
+logowanie;login form
+brak dostępu;access denied
+sorry, dalej nie można;sorry you can't go further
+
+---===;actions
+lista akcji;actions list
+przypisz akcje dokumentom;assign actions to documents
+akcje dla użytkowników;actions for users
+nieunikalna nazwa akcji;action name is not unique
+nazwa akcji;action name
+
+---===;docTypes
+lista typów dokumentów;document types list
+nazwa typu dokumentu;document type name
+nieunikalna nazwa typu;type name is not unique
+
+
+---===actionsForDocTypes
+przypisywanie akcji typom dokumentów;assigning actions for document types
+
+---===;main
+zalogowany: ;logged as:
+głowny pulpit (wersja: ;main workspace (App version:
+konfiguracja;go to config
+panel dokumentów;documents panel
+dokumenty do obsługi;documents to handle
+historia zmian;history of changes
+załączniki dokumentu;document attachments
+dodaj nowy dokument;add new document
+przekaż dalej;pass it on
+oddaj z powrotem;pass it back
+dodaj załącznik;add attachment
+cofnij do korekty;return for correction
+koryguj dokument;correct the document
+odblokuj dla innych;unlock for others
+pusto;empty
+dokumenty w trakcie rozliczenia;documents during settlement
+dokumenty zarchiwizowane;archived documents
+
+
+---===;documents
+nie masz żadnego dokumentu do obsługi;you do not have any document to handle
+nie wybrany żaden dokument;no document selected
+brak danych;no data
+identyfikator dokumentu;document identifier
+komentarz;comment
+ostatni komentarz;last comment
+wprowadż nowy/edytuj dokument;enter a new/edit document
+dane documentu;document data
+projekt;project
+typ dokumentu;document type
+akcja;action
+następny krok;next step
+archiwizowany;archived
+data wprowadzenia;entry date
+data modyfikacji;modification date
+data archiwizacji;archive date
+użytkownik modyfikujący;modifier user
+użytkownik blokujący;locking user
+użytkownik archiwizujący;archiving user
+dokument zarchiwizowany;document archived
+załącznik;attachment
+wartość;value
+identyfikator i wartość dokumentu nie mogą być puste;document identifier and value can't be empty
+nieprawidłowy identyfikator dokumentu(nie może być pusty);invalid document identifier (can't be empty)
+nieprawidłowa wartość (nie może być pusta);invalid value (can't be empty)
+nieprawidłowy projekt (nie może być pusty);invalid project (can't be empty)
+nieprawidłowy typ dokumentu (nie może być pusty);invalid document type (can't be empty)
+zanim przejdziesz dalej...;before you go on...
+następna akcja dla dokumentu: ;next action for document:
+komentarze;comments
+komentarz do przekazania?;any comments?
+dodaj załącznik;add attachment
+za duży plik;Too big file
+nie można otworzyć pliku;could not open file
+niepowodzenie ładowania pliku;file upload failed
+ERROR: nieprawidłowy folder dla załączników - sprawdź konfigurację;ERROR: Could not create upload dir - check configuration
+przeglądanie załączników;attachment viewer
+notatka;note
+komentarz;comment
+kwota do zapłaty;value to pay
+UWAGA!   Korekta dokumentu sprawi, że zostanie on przesunięty na początek ścieżki przetwarzania. wszystkie zatwierdzone kroki przetwarzania zostaną anaulowane! TEN KROK JEST NIEODWRACALNY!;WARNING!   Correcting the document will cause moved this document to beginning of processing path. All previous approved statuses will be cancelled! THIS STEP IS IRREVERSIBLE!
+UWAGA!   Dokument zostanie zarchiwizowany - TEN KROK JEST NIEODWRACALNY! Kontynuować?;WARNING!   Document will be moved to archive - THIS STEP IS IRREVERSIBLE! Do you confirm?
+
+---===;Reports
+dokumenty zarchiwizowane:;documents already archived:
+dokumenty czekające na rozliczenie:;documents waiting for settlement:
+wysłany raport;sent report
+wybierz jeden z raportów powyżej ...;select one report from above ...
+historia dokumentu;document history
+użytkownicy uprawnieni do obsługi wybranego dokumentu:;users privileged to handle documents:
+
+---===;Projects
+projekty;projects
+nazwa projektu;project name
+konfiguracja projektów;projects configurations
+minimalny okres rabatu;minimal discount period
+maksymalny okres rabatu;maximal discount period
+procent rabatu;discount percent
+nazwa projektu musi być unikalna;name of project has to be unique
+
+---===;actionsForUsers
+przypisz użytkowników do akcji;assign users for action:
+
+---===;email Messages
+Nowy dokument czeka na Twoją obsługę!;New document is waiting for your action!
+<p>Witaj &userName^!<br><br>W serwisie: &selfURL^<br> na Twoją obsługę czeka dokument: &docId^<br> o statusie: &actionId^<br> z komentarzem: "&comment^"<br><br><b>Prosimy o szybką reakcję.</b><br>Proszę nie odpowiadać na tą wiadomość!</p>;<p>Hi &userName^!<br><br>On the website: &selfURL^<br> for your action is waiting document: &docId^<br> on status: &actionId^<br> with comment: "&comment^"<br><br><b>Please act quickly.</b><br>Please do not reply to this message!</p>
