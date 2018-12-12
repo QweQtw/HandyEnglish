@@ -6,6 +6,7 @@ import com.vaadin.server.ErrorHandler;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -17,7 +18,9 @@ import java.util.Map;
 public abstract class BaseView  extends UI {
 
     @Autowired
-    LoginService ls;
+    protected LoginService ls;
+    @Autowired
+    protected SqlSessionFactory sqlSF;
     @Value("${app.start.path}")
     private String mainPath;
 

@@ -1,15 +1,22 @@
 package com.tw.progs.HandyEnglish.db.myBatis.dtos;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 public class Category {
-	Integer id;
-	String category;
-	Date crtd;
-	public Category(Integer id, String category, Date crtd) {
+	private Integer id;
+	private String category;
+	private Integer prof;
+	private ZonedDateTime crtd;
+
+	public Category(){
+
+	}
+
+	public Category(Integer id, String category, Integer profile, ZonedDateTime crtd) {
 		super();
 		this.id = id;
 		this.category = category;
+		this.prof = profile;
 		this.crtd = crtd;
 	}
 	public Integer getId() {
@@ -24,10 +31,18 @@ public class Category {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Date getCrtd() {
+	public Integer getProf() {
+		return prof;
+	}
+
+	public void setProf(Integer prof) {
+		this.prof = prof;
+	}
+	public ZonedDateTime getCrtd() {
 		return crtd;
 	}
-	public void setCrtd(Date crtd) {
+	public void setCrtd(ZonedDateTime crtd) {
 		this.crtd = crtd;
 	}
+
 }

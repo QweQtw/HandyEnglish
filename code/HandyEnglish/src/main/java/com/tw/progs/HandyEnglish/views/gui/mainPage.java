@@ -24,6 +24,7 @@ public class mainPage extends VerticalLayout {
     protected Button btnAddPhrase;
     protected Button btnAddTest;
     protected Button btnAddRule;
+    protected Button btnShowDict;
     protected Button btnExam;
     protected Button btnMultiExam;
     protected Button btnLogout;

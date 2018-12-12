@@ -1,9 +1,9 @@
 package com.tw.progs.HandyEnglish.tools;
 
 import com.tw.progs.HandyEnglish.HandyEnglishApplication;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.ProfilesMapper;
 import com.tw.progs.HandyEnglish.models.daos.NullDAO;
-import com.tw.progs.HandyEnglish.models.daos.ProfilesDAO;
 import com.tw.progs.HandyEnglish.views.BaseView;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.icons.VaadinIcons;
@@ -52,7 +52,7 @@ public class LoginService extends UI{
     protected void init(VaadinRequest request) {
     }
 
-    private boolean Authenticated(ProfilesDAO pD, String pass){
+    private boolean Authenticated(Profile pD, String pass){
 
         Integer user_id = pD.getId();
         if (pD==null) return false;
@@ -76,7 +76,7 @@ public class LoginService extends UI{
         VaadinSession vs = VaadinSession.getCurrent();
         vs.getSession().setMaxInactiveInterval(600);
         if (!isDebugLocation(Page.getCurrent())) {
-            final ProfilesDAO pD = pm.findUserByeMail(user);
+            final Profile pD = pm.findUserByeMail(user);
             if (pD!=null && Authenticated(pD, pass)) {
                 vs.setAttribute(AuthSessionKey, pD);
                 globalList.add(vs);
@@ -86,7 +86,7 @@ public class LoginService extends UI{
                 logger.info(this.getClass().getName()+"::LogIn -> unsuccessful login attempt for "+ ((pD!=null)?pD.getName():" unknown user!") );
             }
         } else {
-            final ProfilesDAO pD = pm.findUserByeMail(superAdminEmail);
+            final Profile pD = pm.findUserByeMail(superAdminEmail);
             vs.setAttribute(AuthSessionKey, pD);
             globalList.add(vs);
             logger.info(this.getClass().getName()+"::LogIn -> just logged in (Debug Mode), user:"+pD.getId());
@@ -98,8 +98,8 @@ public class LoginService extends UI{
         vs.setAttribute(AuthSessionKey, new NullDAO());
         globalList.remove(vs);
         final Object obj = VaadinSession.getCurrent().getAttribute(AuthSessionKey);
-        if ((obj!=null) && (obj instanceof ProfilesDAO)){
-            logger.info(this.getClass().getName()+"::LogOut -> just logged out, user:"+((ProfilesDAO)obj).getId());
+        if ((obj!=null) && (obj instanceof Profile)){
+            logger.info(this.getClass().getName()+"::LogOut -> just logged out, user:"+((Profile)obj).getId());
         }else {
             logger.info(this.getClass().getName() + "::LogOut -> just logged out for unknown user");
         }
@@ -108,7 +108,7 @@ public class LoginService extends UI{
 
     public boolean isSessionAuthorized(){
         Object obj = VaadinSession.getCurrent().getAttribute(AuthSessionKey);
-        return  (obj!=null) && (obj instanceof ProfilesDAO);
+        return  (obj!=null) && (obj instanceof Profile);
     }
 
     public Object getLoginUserDAO(){

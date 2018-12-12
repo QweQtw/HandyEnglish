@@ -1,6 +1,7 @@
 package com.tw.progs.HandyEnglish.views.gui;
 
 import com.tw.progs.HandyEnglish.HandyEnglishApplication;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.ProfilesMapper;
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.models.daos.ProfilesDAO;
@@ -22,19 +23,21 @@ import javax.annotation.PostConstruct;
 public class selectProfileHandler extends selectProfile{
     private final ProfilesMapper pm;
     private final Logger logger;
+    private ProfilesDAO pd;
     private eMailAddressValidator ev;
     private passwordDataValidator pv;
     private SqlSession sqlSession = null;
     private String uriLocation;
     private LoginService loginService;
-    private ProfilesDAO loggedUser;
+    private Profile loggedUser;
     private final CaptionHolder ch;
 
 
     @Autowired
-    public selectProfileHandler(CaptionHolder ch, ProfilesMapper pm, eMailAddressValidator eV, passwordDataValidator pV) {
+    public selectProfileHandler(CaptionHolder ch, ProfilesMapper pm, ProfilesDAO pd, eMailAddressValidator eV, passwordDataValidator pV) {
         this.ch = ch;
         this.pm = pm;
+        this.pd = pd;
         this.ev = eV;
         this.pv = pV;
         this.logger = HandyEnglishApplication.log;
@@ -45,14 +48,11 @@ public class selectProfileHandler extends selectProfile{
 
         Object obj = VaadinSession.getCurrent().getAttribute(LoginService.AuthSessionKey);
         String logedAs = "";
-        if (obj instanceof ProfilesDAO){
-            loggedUser = (ProfilesDAO)obj;
+        if (obj instanceof Profile){
+            loggedUser = (Profile)obj;
             logedAs = loggedUser.getName();
             setDataProvider();
-//            lblLogedAs.setValue(ch.getCaption("zalogowany:")+logedAs);
         }else{
-//            tabDocs.addComponentsAndExpand(new SimpleError(ch));
-//            tabHist.addComponentsAndExpand(new LoginError(ch));
 //            tabDetails.addComponentsAndExpand(new LoginError(ch));
         }
 
@@ -66,17 +66,14 @@ public class selectProfileHandler extends selectProfile{
         this.uriLocation = Page.getCurrent().getLocation().toString();
     }
 
-    public void setLoggedUser(LoginService ls, IDAO loggedUser) {
+    public void setLoggedUser(LoginService ls, Profile loggedUser) {
         this.loginService = ls;
-        if (loggedUser!=null && (loggedUser instanceof ProfilesDAO)) {
-            this.loggedUser = (ProfilesDAO) loggedUser;
-            //lblLogedAs.setValue(ch.getCaption("zalogowany:")+loggedUser.getName());
+        if (loggedUser!=null ) {
+            this.loggedUser = (Profile) loggedUser;
             setDataProvider();
             setListeners();
             afterFullInitialization();
         }else{
-//            tabDocs.addComponent(new SimpleError(ch));
-//            tabHist.addComponent(new LoginError(ch));
 //            tabDetails.addComponent(new LoginError(ch));
         }
     }
@@ -88,10 +85,10 @@ public class selectProfileHandler extends selectProfile{
     private void setListeners() {
 
         btnLogin.addClickListener(event->{ String email = txtLoginEmail.getValue().trim();
-            String pass = CipherOps.MD5(pssLoginPass.getValue().trim());
+            String pass = pssLoginPass.getValue().trim();
 
-            ProfilesDAO profile = pm.findUserByeMail(email);
-            if (profile!=null && profile.getPass_hash().equalsIgnoreCase(pass)) {
+            Profile profile = pm.findUserByeMail(email);
+            if (profile!=null && profile.getPass_hash().equalsIgnoreCase(CipherOps.MD5(pass))) {
                 loginService.LogIn(email,pass);
                 checkRemeberMe();
                 redirection("mainPage");
@@ -112,9 +109,10 @@ public class selectProfileHandler extends selectProfile{
             }
             if (ev.isValidEmailAddress(email)){
                 if(pv.isValidPassword(pass) && pass.equalsIgnoreCase(rept)) {
-                    ProfilesDAO profile = new ProfilesDAO(email, CipherOps.MD5(pass));
+                    Profile profile = new Profile(email, CipherOps.MD5(pass));
                     try {
-                        pm.insertUser(profile);
+                        pd.saveProfile(profile);
+                        //pm.insertUser(profile);
                     } catch (Exception ex) {
                         reset(true, ch.getCaption("Nie można zarejestrować użytkownika! (Spróbuj później)"));
                         logger.error("Registartion user problem: "+ex.getLocalizedMessage());
@@ -161,7 +159,7 @@ public class selectProfileHandler extends selectProfile{
     }
 
     private boolean checkEmailExists(String email) {
-        ProfilesDAO profile = pm.findUserByeMail(email.trim());
+        Profile profile = pm.findUserByeMail(email.trim());
         return profile!=null && profile.getId()>0;
     }
 

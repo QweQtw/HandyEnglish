@@ -36,6 +36,7 @@ foreign key fk_words_prof(prof) references profiles(id)
 create unique index uq_words_values on words (word(128), eqiv(128), prof);
 create index idx_words_word on words (word(512));
 create index idx_words_eqiv on words (eqiv(512));
+create index idx_words_catProf on words (category, prof);
 create table categories(
 	id int NOT NULL AUTO_INCREMENT primary key,
 	category text not null,
@@ -45,14 +46,17 @@ foreign key fk_categories_prof(prof) references profiles(id)
 );
 create unique index uq_categories_values on categories(category(512), prof);
 insert into profiles(name, pass_hash) values('5ba73291-a0d2-412f-891a-0665f99cb10f','DEFAULT USER ACCOUNT');
---insert into categories(category, prof) values('ogólne', (SELECT id FROM profiles where name='5ba73291-a0d2-412f-891a-0665f99cb10f'));
+insert into categories(category, prof) values('...', (SELECT id FROM profiles where name='5ba73291-a0d2-412f-891a-0665f99cb10f'));
 
 drop table words;
 drop table categories;
 drop table profiles;
 
 SELECT * FROM profiles;
+
 SELECT * FROM words;
+
 SELECT * FROM categories;
+
 SELECT ID FROM profiles where name='5ba73291-a0d2-412f-891a-0665f99cb10f';
 

@@ -1,16 +1,22 @@
 package com.tw.progs.HandyEnglish.db.myBatis.dtos;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 public class Word {
-	Integer id;
-	Integer category;
-	String word;
-	String eqiv;
-	String defn;
-	String exmp;
-	Date crtd;
-	public Word(Integer id, Integer category, String word, String eqiv, String defn, String exmp, Date crtd) {
+	private Integer id;
+	private Integer category;
+	private String word;
+	private String eqiv;
+	private String defn;
+	private String exmp;
+	private Integer prof;
+	private ZonedDateTime crtd;
+
+	public Word(){
+
+	}
+
+	public Word(Integer id, Integer category, String word, String eqiv, String defn, String exmp, Integer profile, ZonedDateTime crtd) {
 		super();
 		this.id = id;
 		this.category = category;
@@ -18,6 +24,7 @@ public class Word {
 		this.eqiv = eqiv;
 		this.defn = defn;
 		this.exmp = exmp;
+		this.prof = profile;
 		this.crtd = crtd;
 	}
 	public Integer getId() {
@@ -56,10 +63,16 @@ public class Word {
 	public void setExmp(String exmp) {
 		this.exmp = exmp;
 	}
-	public Date getCrtd() {
+	public Integer getProf() {
+		return prof;
+	}
+	public void setProf(Integer prof) {
+		this.prof = prof;
+	}
+	public ZonedDateTime getCrtd() {
 		return crtd;
 	}
-	public void setCrtd(Date crtd) {
+	public void setCrtd(ZonedDateTime crtd) {
 		this.crtd = crtd;
 	}
 }

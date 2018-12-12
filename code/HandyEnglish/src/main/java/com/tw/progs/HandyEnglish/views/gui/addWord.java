@@ -29,6 +29,7 @@ public class addWord extends VerticalLayout {
     protected ComboBox<String> cmbCategory;
     protected Button btnSend;
     protected Button btnReset;
+    protected VerticalLayout tabDetails;
 
     public addWord() {
         Design.read(this);

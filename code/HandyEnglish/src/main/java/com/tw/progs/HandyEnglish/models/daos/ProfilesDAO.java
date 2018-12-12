@@ -1,64 +1,35 @@
 package com.tw.progs.HandyEnglish.models.daos;
 
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
+import com.tw.progs.HandyEnglish.db.myBatis.mappers.ProfilesMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.time.ZonedDateTime;
 
 /**
  * Created by VCLERK on 22.03.2017.
  */
-public class ProfilesDAO implements IDAO{
+@Component
+public class ProfilesDAO {
 
-    public ProfilesDAO() {
 
-    }
-    public ProfilesDAO(String name, String pass_hash) {
-        this.name = name;
-        this.pass_hash = pass_hash;
-    }
+    private ProfilesMapper pm;
+    @Value("${db.super.admin.email}")
+    private String defUserName;
 
-    private Integer id;
-    private String name;
-    private String pass_hash;
-    private ZonedDateTime uptd;
-    private ZonedDateTime crtd;
-
-    public Integer getId() {
-        return id;
+    @Autowired
+    public ProfilesDAO(ProfilesMapper pm){
+        this.pm = pm;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public void saveProfile(Profile prof){
+        pm.insertUser(prof);
+    };
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPass_hash() {
-        return pass_hash;
-    }
-
-    public void setPass_hash(String pass_hash) {
-        this.pass_hash = pass_hash;
-    }
-
-    public ZonedDateTime getUptd() {
-        return uptd;
-    }
-
-    public void setUptd(ZonedDateTime uptd) {
-        this.uptd = uptd;
-    }
-
-    public ZonedDateTime geCrtd() {
-        return crtd;
-    }
-
-    public void setCrtd(ZonedDateTime crtd) {
-        this.crtd = crtd;
+    public Integer getDefUserAccountId(){
+        return pm.findUserByeMail(defUserName).getId();
     }
 
 }
