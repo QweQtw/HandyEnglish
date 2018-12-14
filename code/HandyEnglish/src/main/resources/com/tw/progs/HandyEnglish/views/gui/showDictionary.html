@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-panel caption="Your dictionary:" size-full _id="pnlDictionary" :expand>
+    <vaadin-vertical-layout size-full>
+     <vaadin-horizontal-layout width-full :center>
+      <vaadin-combo-box caption="category:" style-name="small" text-input-allowed="false" width-full tabindex="1" data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Category" _id="cmbCategory" :expand></vaadin-combo-box>
+      <vaadin-text-field caption="word:" style-name="small" placeholder="" width-full tabindex="2" _id="txtWord" :expand></vaadin-text-field>
+      <vaadin-text-field caption="equiv:" style-name="small" placeholder="" width-full tabindex="3" _id="txtEquiv" :expand></vaadin-text-field>
+      <vaadin-button style-name="small danger" tabindex="4" plain-text _id="btnClear" :bottom :center>
+        x 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-grid size-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Word" _id="grdData" :center :expand></vaadin-grid>
+     <vaadin-horizontal-layout width-full :bottom :center>
+      <vaadin-button enabled="false" style-name="small primary" width="256px" plain-text _id="btnDetails" :center>
+        details 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
+ </body>
+</html>

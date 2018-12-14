@@ -18,11 +18,20 @@ public interface WordsMapper {
 	void updateWord(Word word);
 
 	@Select("SELECT * FROM words WHERE word=#{word} AND eqiv=#{eqiv} AND prof=#{prof}")
-	Word findWord(String word, String eqiv, @Param("prof")Integer profile);
+	Word findExactWord(String word, String eqiv, @Param("prof")Integer profile);
+
+	@Select("SELECT * FROM words WHERE prof=#{prof} AND word like #{word}")
+	List<Word> findWordLike(String word, @Param("prof")Integer profile);
+
+	@Select("SELECT * FROM words WHERE prof=#{prof} AND eqiv like #{eqiv}")
+	List<Word> findEquivLike(String eqiv, @Param("prof")Integer profile);
 
 	@Select("SELECT * FROM words WHERE id=#{id}")
 	Word findWordById(Integer id);
 
 	@Select("SELECT * FROM words WHERE category=#{category} AND prof=#{prof}")
 	List<Word> getWordsByCategory(Integer category, @Param("prof")Integer profile);
+
+	@Select("SELECT * FROM words WHERE prof=#{prof}")
+	List<Word> getAllWordsForUser(@Param("prof")Integer profile);
 }

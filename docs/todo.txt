@@ -1,0 +1,1 @@
+1. Podwójne zalogowania ze strony .../start -> jeżeli logged to redirect na mainPage

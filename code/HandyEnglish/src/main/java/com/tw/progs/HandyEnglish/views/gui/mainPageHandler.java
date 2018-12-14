@@ -67,6 +67,9 @@ public class mainPageHandler extends mainPage {
         btnAddWord.addClickListener(event->{
             redirection("addWord");
         });
+        btnShowDict.addClickListener(e->{
+           redirection("showDictionary");
+        });
         btnLogout.addClickListener(event->{
             ls.LogOut();
             redirection("start");

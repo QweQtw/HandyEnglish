@@ -34,6 +34,7 @@ public class CategoryDAO {
             if (category!=null&&category.getId()>0) {
                 return category.getId();
             }else {
+                category = new Category();
                 category.setProf(profileId);
                 category.setCategory(cat);
                 cm.insertCategory(category);

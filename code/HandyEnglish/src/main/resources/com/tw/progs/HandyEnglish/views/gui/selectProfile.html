@@ -7,35 +7,36 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-horizontal-layout width-full height="360px">
-    <vaadin-panel caption="Login" width="380px" height-full _id="pnlLogin" :expand>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-text-field caption="email:" style-name="small" _id="txtLoginEmail"></vaadin-text-field>
-      <vaadin-password-field caption="password:" style-name="small" _id="pssLoginPass"></vaadin-password-field>
-      <vaadin-check-box caption="Remember me" style-name="small" _id="chbRemember"></vaadin-check-box>
-      <vaadin-horizontal-layout>
-       <vaadin-button icon="fonticon://Vaadin-Icons/e797" style-name="small friendly" width="164px" plain-text _id="btnLogin">
-         Log in 
+   <vaadin-horizontal-layout size-full :center :expand>
+    <vaadin-horizontal-split-panel locked width="800px">
+     <vaadin-panel caption="Login" width="380px" height-full _id="pnlLogin">
+      <vaadin-vertical-layout size-auto>
+       <vaadin-text-field caption="email:" style-name="small" _id="txtLoginEmail"></vaadin-text-field>
+       <vaadin-password-field caption="password:" style-name="small" _id="pssLoginPass"></vaadin-password-field>
+       <vaadin-check-box caption="Remember me" style-name="small" _id="chbRemember"></vaadin-check-box>
+       <vaadin-horizontal-layout>
+        <vaadin-button icon="fonticon://Vaadin-Icons/e797" style-name="small friendly" width="164px" plain-text _id="btnLogin">
+          Log in 
+        </vaadin-button>
+        <vaadin-button style-name="small quiet" width="164px" plain-text _id="btnResetPass">
+          Reset password 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+     </vaadin-panel>
+     <vaadin-panel caption="Register" width="380px" height-full _id="pnlRegister">
+      <vaadin-vertical-layout size-auto>
+       <vaadin-text-field caption="email:" style-name="small" _id="txtRegisterEmail"></vaadin-text-field>
+       <vaadin-password-field caption="password:" style-name="small" _id="pssRegisterPass"></vaadin-password-field>
+       <vaadin-password-field caption="repeat password:" style-name="small" _id="pssRegisterRepeat"></vaadin-password-field>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e771" style-name="small danger" width="164px" plain-text _id="btnRegister">
+         Sign in &amp; Login 
        </vaadin-button>
-       <vaadin-button style-name="small quiet" width="164px" plain-text _id="btnResetPass">
-         Reset password 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-    </vaadin-panel>
-    <vaadin-panel caption="Register" width="380px" height-full _id="pnlRegister" :expand>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-text-field caption="email:" style-name="small" _id="txtRegisterEmail"></vaadin-text-field>
-      <vaadin-password-field caption="password:" style-name="small" _id="pssRegisterPass"></vaadin-password-field>
-      <vaadin-password-field caption="repeat password:" style-name="small" _id="pssRegisterRepeat"></vaadin-password-field>
-      <vaadin-button icon="fonticon://Vaadin-Icons/e771" style-name="small danger" width="164px" plain-text _id="btnRegister">
-        Sign in &amp; Login 
-      </vaadin-button>
-     </vaadin-vertical-layout>
-    </vaadin-panel>
-    <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+      </vaadin-vertical-layout>
+     </vaadin-panel>
+    </vaadin-horizontal-split-panel>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout height="320px" _id="tabDetails"></vaadin-vertical-layout>
+   <vaadin-vertical-layout height="320px" _id="tabDetails" :bottom :center></vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

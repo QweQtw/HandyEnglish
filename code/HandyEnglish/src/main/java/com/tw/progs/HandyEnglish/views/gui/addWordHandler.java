@@ -1,5 +1,6 @@
 package com.tw.progs.HandyEnglish.views.gui;
 
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Category;
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Word;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.CategoriesMapper;
@@ -15,6 +16,9 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Optional;
+
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class addWordHandler extends addWord {
@@ -29,6 +33,8 @@ public class addWordHandler extends addWord {
     private CategoryDAO cd;
     private CaptionHolder ch;
     private Integer profileId;
+
+    private List<Category> cmbList;
 
     @Autowired
     public addWordHandler(WordsMapper wm, CategoriesMapper cm, CategoryDAO cd, CaptionHolder ch){
@@ -54,16 +60,20 @@ public class addWordHandler extends addWord {
     }
 
     private void afterFullInitialization() {
-        cmbCategory.setItems(cm.getAllCategories(profileId).stream().map(x->x.getCategory()));
+        cmbList = cm.getAllCategories(profileId);
+        cmbCategory.setItems(cmbList);
+        cmbCategory.setItemCaptionGenerator(Category::getCategory);
         //cmbCategory.setSelectedItem();
     }
 
     private void setListeners() {
-        cmbCategory.addValueChangeListener(e->{
-            e.
-                    dopisać dodawanie
-                    albo sprawdzić jak edytować cmb i dodawać z ręki itemy
-        })
+        cmbCategory.setNewItemProvider(inputString->{
+            Category newCategory = new Category(0, inputString, profileId, null);
+            cmbList.add(newCategory);
+            cmbCategory.setItems(cmbList);
+            cmbCategory.setSelectedItem(newCategory);
+            return Optional.of(newCategory);
+        });
 
         btnReset.addClickListener(event->{
             clearFileds();
@@ -76,7 +86,7 @@ public class addWordHandler extends addWord {
                 tabDetails.removeAllComponents();
                 tabDetails.addComponent(new LoginError(ch, "Wypełnij poprawnie wszytkie pola"));
             }else{
-                Word tmp = wm.findWord(word.getWord(), word.getEqiv(), profileId);
+                Word tmp = wm.findExactWord(word.getWord(), word.getEqiv(), profileId);
                 if (tmp==null)
                     wm.insertWord(word);
                 else
@@ -95,7 +105,7 @@ public class addWordHandler extends addWord {
     }
 
     private Word assignCompValues() {
-        String cat = (cmbCategory.getValue()!=null&&!cmbCategory.getValue().trim().isEmpty())?cmbCategory.getValue().trim():"";
+        String cat = (cmbCategory.getValue()!=null&&!cmbCategory.getValue().getCategory().trim().isEmpty())?cmbCategory.getValue().getCategory().trim():"";
         String wrd = (txtWord.getValue()!=null&&!txtWord.getValue().trim().isEmpty())?txtWord.getValue().trim():"";
         String eqv = (txtEquiv.getValue()!=null&&!txtEquiv.getValue().trim().isEmpty())?txtEquiv.getValue().trim():"";
         String dfn = (txtDefn.getValue()!=null&&!txtDefn.getValue().trim().isEmpty())?txtDefn.getValue().trim():"";

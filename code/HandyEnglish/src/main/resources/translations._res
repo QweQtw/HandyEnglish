@@ -9,6 +9,10 @@ Nie można zarejestrować użytkownika! (Spróbuj później);Problem with user r
 Upewnij się że hasło składa się co najmniej z 4 znaków, posaida cyfry, duże i małe litery i wpisałeś je dwukrotnie tak samo;Please be sure that password consist of 4 chars, digits, capital and small leters and you entered it twice.
 Taki Użytkownik już istnieje;Specified user already exists
 Wypełnij poprawnie wszytkie pola;Please fill all fileds with correct values
+Twój słownik; Your dictionary
+kategoria;category
+słowo;word
+odpowiednik;equivalent
 
 ---===;messages
 problem z danymi;problem with input data

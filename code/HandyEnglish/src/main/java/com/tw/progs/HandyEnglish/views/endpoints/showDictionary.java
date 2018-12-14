@@ -2,22 +2,23 @@ package com.tw.progs.HandyEnglish.views.endpoints;
 
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.views.BaseView;
-import com.tw.progs.HandyEnglish.views.gui.mainPageHandler;
+import com.tw.progs.HandyEnglish.views.gui.showDictionaryHandler;
 import com.vaadin.spring.annotation.SpringUI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
-@SpringUI(path = "/HandyEnglih/mainPage")
-public class main extends BaseView {
+@SpringUI(path = "/HandyEnglih/showDictionary")
+public class showDictionary extends BaseView {
 
     @Autowired
-    private mainPageHandler mph;
+    showDictionaryHandler sd;
 
     @Override
     protected void show(Map<String, String[]> params) {
-        mph.setSqlSession(sqlSF.openSession(false));
-        mph.setLoggedUser(ls, (IDAO)ls.getLoginUserDAO());
-        setContent(mph);
+        sd.setSqlSession(sqlSF.openSession(false));
+        sd.setLoggedUser(ls, (IDAO)ls.getLoginUserDAO());
+        setContent(sd);
+
     }
 }
