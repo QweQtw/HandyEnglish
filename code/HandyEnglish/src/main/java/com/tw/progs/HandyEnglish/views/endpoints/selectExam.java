@@ -2,24 +2,22 @@ package com.tw.progs.HandyEnglish.views.endpoints;
 
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.views.BaseView;
-import com.tw.progs.HandyEnglish.views.handlers.addWordHandler;
+import com.tw.progs.HandyEnglish.views.handlers.selectExamineHandler;
 import com.vaadin.spring.annotation.SpringUI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
-@SpringUI(path = "/HandyEnglish/addWord")
-public class addWord extends BaseView {
-
+@SpringUI(path = "/HandyEnglish/Exam")
+public class selectExam extends BaseView {
     @Autowired
-    private addWordHandler addWord;
-
+    selectExamineHandler se;
 
     @Override
     protected void show(Map<String, String[]> params) {
-        addWord.setSqlSession(sqlSF.openSession(false));
-        addWord.setLoggedUser(ls, (IDAO)ls.getLoginUserDAO());
-        setContent(addWord);
-    }
+        se.setSqlSession(sqlSF.openSession(false));
+        se.setLoggedUser(ls, (IDAO)ls.getLoginUserDAO());
+        setContent(se);
 
+    }
 }

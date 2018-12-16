@@ -1,10 +1,7 @@
 package com.tw.progs.HandyEnglish.views;
 
 import com.tw.progs.HandyEnglish.tools.LoginService;
-import com.vaadin.server.DefaultErrorHandler;
-import com.vaadin.server.ErrorHandler;
-import com.vaadin.server.Page;
-import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.*;
 import com.vaadin.ui.UI;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 import java.util.Map;
 
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public abstract class BaseView  extends UI {
+public abstract class BaseView  extends UI{
 
     @Autowired
     protected LoginService ls;

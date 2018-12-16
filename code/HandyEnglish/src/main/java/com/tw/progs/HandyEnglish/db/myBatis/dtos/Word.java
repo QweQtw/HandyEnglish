@@ -5,6 +5,7 @@ import java.time.ZonedDateTime;
 public class Word {
 	private Integer id;
 	private Integer category;
+	private Integer topic;
 	private String word;
 	private String eqiv;
 	private String defn;
@@ -16,10 +17,11 @@ public class Word {
 
 	}
 
-	public Word(Integer id, Integer category, String word, String eqiv, String defn, String exmp, Integer profile, ZonedDateTime crtd) {
+	public Word(Integer id, Integer category, Integer topic, String word, String eqiv, String defn, String exmp, Integer profile, ZonedDateTime crtd) {
 		super();
 		this.id = id;
 		this.category = category;
+		this.topic = topic;
 		this.word = word;
 		this.eqiv = eqiv;
 		this.defn = defn;
@@ -74,5 +76,13 @@ public class Word {
 	}
 	public void setCrtd(ZonedDateTime crtd) {
 		this.crtd = crtd;
+	}
+
+	public Integer getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Integer topic) {
+		this.topic = topic;
 	}
 }

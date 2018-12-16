@@ -13,6 +13,12 @@ Twój słownik; Your dictionary
 kategoria;category
 słowo;word
 odpowiednik;equivalent
+definicja;definition
+przykład;example
+PODSUMOWANIE;SUMMARY
+Nie można pobrać danych do egzaminu;Cant load data for exam
+Błędne parametry examinu;Inavalid exam params
+
 
 ---===;messages
 problem z danymi;problem with input data

@@ -17,12 +17,11 @@
         x 
       </vaadin-button>
      </vaadin-horizontal-layout>
-     <vaadin-grid size-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Word" _id="grdData" :center :expand></vaadin-grid>
-     <vaadin-horizontal-layout width-full :bottom :center>
-      <vaadin-button enabled="false" style-name="small primary" width="256px" plain-text _id="btnDetails" :center>
-        details 
-      </vaadin-button>
-     </vaadin-horizontal-layout>
+     <vaadin-grid style-name="small" size-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Word" _id="grdData" :center :expand></vaadin-grid>
+     <vaadin-vertical-layout spacing="false" height="164px" margin="false" :center>
+      <vaadin-text-area caption="definition:" rows="2" style-name="tiny borderless" width-full readonly _id="txaDefn"></vaadin-text-area>
+      <vaadin-text-area caption="example:" rows="2" style-name="tiny borderless" width-full readonly _id="txaExmpl"></vaadin-text-area>
+     </vaadin-vertical-layout>
     </vaadin-vertical-layout>
    </vaadin-panel>
   </vaadin-vertical-layout>

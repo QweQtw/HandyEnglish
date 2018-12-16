@@ -2,13 +2,13 @@ package com.tw.progs.HandyEnglish.views.endpoints;
 
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.views.BaseView;
-import com.tw.progs.HandyEnglish.views.gui.selectProfileHandler;
+import com.tw.progs.HandyEnglish.views.handlers.selectProfileHandler;
 import com.vaadin.spring.annotation.SpringUI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
-@SpringUI(path = "/HandyEnglih/start")
+@SpringUI(path = "/HandyEnglish/start")
 public class entryPoint extends BaseView {
 
     @Autowired

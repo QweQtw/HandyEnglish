@@ -7,9 +7,9 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-horizontal-layout size-full :center :expand>
+   <vaadin-horizontal-layout spacing="false" width-full height="320px" :center>
     <vaadin-horizontal-split-panel locked width="800px">
-     <vaadin-panel caption="Login" width="380px" height-full _id="pnlLogin">
+     <vaadin-panel caption="Login" style-name="well" width="380px" height-full _id="pnlLogin">
       <vaadin-vertical-layout size-auto>
        <vaadin-text-field caption="email:" style-name="small" _id="txtLoginEmail"></vaadin-text-field>
        <vaadin-password-field caption="password:" style-name="small" _id="pssLoginPass"></vaadin-password-field>
@@ -24,7 +24,7 @@
        </vaadin-horizontal-layout>
       </vaadin-vertical-layout>
      </vaadin-panel>
-     <vaadin-panel caption="Register" width="380px" height-full _id="pnlRegister">
+     <vaadin-panel caption="Register" style-name="well" width="380px" height-full _id="pnlRegister">
       <vaadin-vertical-layout size-auto>
        <vaadin-text-field caption="email:" style-name="small" _id="txtRegisterEmail"></vaadin-text-field>
        <vaadin-password-field caption="password:" style-name="small" _id="pssRegisterPass"></vaadin-password-field>
@@ -36,7 +36,7 @@
      </vaadin-panel>
     </vaadin-horizontal-split-panel>
    </vaadin-horizontal-layout>
-   <vaadin-vertical-layout height="320px" _id="tabDetails" :bottom :center></vaadin-vertical-layout>
+   <vaadin-vertical-layout size-full _id="tabDetails" :bottom :center :expand></vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

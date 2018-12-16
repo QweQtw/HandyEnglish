@@ -2,13 +2,13 @@ package com.tw.progs.HandyEnglish.views.endpoints;
 
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.views.BaseView;
-import com.tw.progs.HandyEnglish.views.gui.showDictionaryHandler;
+import com.tw.progs.HandyEnglish.views.handlers.showDictionaryHandler;
 import com.vaadin.spring.annotation.SpringUI;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
-@SpringUI(path = "/HandyEnglih/showDictionary")
+@SpringUI(path = "/HandyEnglish/showDictionary")
 public class showDictionary extends BaseView {
 
     @Autowired

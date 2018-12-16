@@ -1,4 +1,4 @@
-package com.tw.progs.HandyEnglish.views.gui;
+package com.tw.progs.HandyEnglish.views.handlers;
 
 import com.tw.progs.HandyEnglish.HandyEnglishApplication;
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
@@ -6,6 +6,8 @@ import com.tw.progs.HandyEnglish.db.myBatis.mappers.ProfilesMapper;
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.models.daos.ProfilesDAO;
 import com.tw.progs.HandyEnglish.tools.*;
+import com.tw.progs.HandyEnglish.views.gui.LoginError;
+import com.tw.progs.HandyEnglish.views.gui.selectProfile;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinSession;
@@ -20,7 +22,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
-public class selectProfileHandler extends selectProfile{
+public class selectProfileHandler extends selectProfile {
     private final ProfilesMapper pm;
     private final Logger logger;
     private ProfilesDAO pd;

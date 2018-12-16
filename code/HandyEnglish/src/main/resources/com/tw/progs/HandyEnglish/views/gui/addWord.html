@@ -6,15 +6,16 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout>
-   <vaadin-panel caption="AddWord" size-full _id="pnlAddWord" :expand>
+  <vaadin-vertical-layout size-full>
+   <vaadin-panel caption="Add new word definition" size-full _id="pnlAddWord" :expand>
     <vaadin-vertical-layout height="512px">
-     <vaadin-form-layout>
+     <vaadin-form-layout spacing="false" size-full :expand>
       <vaadin-text-field required-indicator-visible caption="word:" style-name="small" width-full tabindex="1" _id="txtWord"></vaadin-text-field>
       <vaadin-text-field required-indicator-visible caption="equiv:" style-name="small" width-full tabindex="2" _id="txtEquiv"></vaadin-text-field>
       <vaadin-text-field caption="defn:" style-name="small" width-full tabindex="3" _id="txtDefn"></vaadin-text-field>
       <vaadin-text-field caption="exampl:" style-name="small" width-full tabindex="4" _id="txtExmpl"></vaadin-text-field>
       <vaadin-combo-box scroll-to-selected-item caption="category:" style-name="small" width-full tabindex="5" data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Category" _id="cmbCategory"></vaadin-combo-box>
+      <vaadin-combo-box scroll-to-selected-item caption="topic:" style-name="small" width-full tabindex="5" data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Topic" _id="cmbTopic"></vaadin-combo-box>
       <vaadin-horizontal-layout>
        <vaadin-button icon="fonticon://Vaadin-Icons/e762" style-name="friendly small" width="128px" tabindex="6" plain-text _id="btnSend">
          send 
@@ -23,7 +24,7 @@
          reset 
        </vaadin-button>
       </vaadin-horizontal-layout>
-      <vaadin-vertical-layout height="164px" _id="tabDetails"></vaadin-vertical-layout>
+      <vaadin-vertical-layout height="199px" _id="tabDetails"></vaadin-vertical-layout>
      </vaadin-form-layout>
     </vaadin-vertical-layout>
    </vaadin-panel>

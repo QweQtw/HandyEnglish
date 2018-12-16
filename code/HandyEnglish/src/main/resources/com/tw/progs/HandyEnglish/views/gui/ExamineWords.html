@@ -6,6 +6,48 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+  <vaadin-vertical-layout size-full>
+   <vaadin-panel caption="Try to guess" size-full _id="pnlGuess" :expand>
+    <vaadin-vertical-layout>
+     <vaadin-text-field caption="equiv:" style-name="small" width-full _id="txtEquiv"></vaadin-text-field>
+     <vaadin-horizontal-layout width-full>
+      <vaadin-progress-bar value="0.5" width-full _id="prgProgress" :middle :expand></vaadin-progress-bar>
+      <vaadin-button enabled="false" style-name="tiny" plain-text _id="btnOverall" :middle :right>
+        0/0 
+      </vaadin-button>
+      <vaadin-button enabled="false" style-name="friendly tiny" plain-text _id="btnGood" :middle :right>
+        0 
+      </vaadin-button>
+      <vaadin-button enabled="false" style-name="danger tiny" plain-text _id="btnBad" :middle :right>
+        0 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-text-field caption="your answer:" style-name="small" width-full _id="txtAnswer"></vaadin-text-field>
+     <vaadin-horizontal-layout width-full :middle>
+      <vaadin-horizontal-layout>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e92b" style-name="small friendly" plain-text _id="btnCheck" :middle>
+         Check 
+       </vaadin-button>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e77c" style-name="small" plain-text _id="btnNext" :middle>
+         skip / next 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+      <vaadin-button style-name="small primary" width="190px" plain-text _id="btnHint" :middle :right>
+        Give me a hint 
+      </vaadin-button>
+      <vaadin-button style-name="small danger" plain-text _id="btnExmpl" :middle :right :expand>
+        Show me an example / don't know 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-vertical-layout spacing="false" height="164px" margin="false">
+      <vaadin-text-area caption="definition:" rows="2" style-name="tiny borderless" width-full readonly _id="txaDefn"></vaadin-text-area>
+      <vaadin-text-area caption="example:" rows="2" style-name="tiny borderless" width-full readonly _id="txaExmpl"></vaadin-text-area>
+     </vaadin-vertical-layout>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e810" style-name="tiny danger" plain-text _id="btnBreak">
+       break / cancel / exit 
+     </vaadin-button>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
  </body>
 </html>

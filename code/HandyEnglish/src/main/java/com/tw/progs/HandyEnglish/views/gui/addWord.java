@@ -27,6 +27,7 @@ public class addWord extends VerticalLayout {
     protected TextField txtDefn;
     protected TextField txtExmpl;
     protected ComboBox<com.tw.progs.HandyEnglish.db.myBatis.dtos.Category> cmbCategory;
+    protected ComboBox<com.tw.progs.HandyEnglish.db.myBatis.dtos.Topic> cmbTopic;
     protected Button btnSend;
     protected Button btnReset;
     protected VerticalLayout tabDetails;

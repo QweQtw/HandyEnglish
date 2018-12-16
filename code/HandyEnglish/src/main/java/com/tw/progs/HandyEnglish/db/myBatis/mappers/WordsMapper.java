@@ -1,5 +1,6 @@
 package com.tw.progs.HandyEnglish.db.myBatis.mappers;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Category;
@@ -10,11 +11,11 @@ import com.tw.progs.HandyEnglish.db.myBatis.dtos.Word;
 @Mapper
 public interface WordsMapper {
 
-	@Insert("INSERT INTO words(category, word, eqiv, defn, exmp, prof) VALUES(#{category}, #{word}, #{eqiv}, #{defn}, #{exmp}, #{prof})")
+	@Insert("INSERT INTO words(category, topic, word, eqiv, defn, exmp, prof) VALUES(#{category}, #{topic}, #{word}, #{eqiv}, #{defn}, #{exmp}, #{prof})")
 	@Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
 	void insertWord(Word word);
 
-	@Update("UPDATE words SET category=#{category}, defn=#{defn}, exmp=#{exmp} WHERE word=#{word} AND eqiv=#{eqiv} AND prof=#{prof}")
+	@Update("UPDATE words SET category=#{category}, topic=#{topic}, defn=#{defn}, exmp=#{exmp} WHERE word=#{word} AND eqiv=#{eqiv} AND prof=#{prof}")
 	void updateWord(Word word);
 
 	@Select("SELECT * FROM words WHERE word=#{word} AND eqiv=#{eqiv} AND prof=#{prof}")
@@ -30,8 +31,15 @@ public interface WordsMapper {
 	Word findWordById(Integer id);
 
 	@Select("SELECT * FROM words WHERE category=#{category} AND prof=#{prof}")
-	List<Word> getWordsByCategory(Integer category, @Param("prof")Integer profile);
+	List<Word> getWordsByCategory(@Param("category")Integer category, @Param("prof")Integer profile);
+
+	@Select("SELECT * FROM words WHERE topic=#{topic} AND prof=#{prof}")
+	List<Word> getWordsByTopic(@Param("topic")Integer topic, @Param("prof")Integer profileId);
+
+	@Select("SELECT * FROM words WHERE category=#{category} AND topic=#{topic} AND prof=#{prof}")
+	List<Word> getWordsByTopicAndCat(@Param("category")Integer category, @Param("topic")Integer topic, @Param("prof")Integer profileId);
 
 	@Select("SELECT * FROM words WHERE prof=#{prof}")
 	List<Word> getAllWordsForUser(@Param("prof")Integer profile);
+
 }

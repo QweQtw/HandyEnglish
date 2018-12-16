@@ -1,4 +1,4 @@
-package com.tw.progs.HandyEnglish.views.gui;
+package com.tw.progs.HandyEnglish.views.handlers;
 
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Category;
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
@@ -8,6 +8,7 @@ import com.tw.progs.HandyEnglish.db.myBatis.mappers.WordsMapper;
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.tools.CaptionHolder;
 import com.tw.progs.HandyEnglish.tools.LoginService;
+import com.tw.progs.HandyEnglish.views.gui.showDictionary;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.event.ShortcutListener;
 import com.vaadin.server.ExternalResource;
@@ -79,6 +80,8 @@ public class showDictionaryHandler extends showDictionary {
         cmbCategory.setCaption(ch.getCaption("kategoria")+":");
         txtWord.setCaption(ch.getCaption("słowo")+":");
         txtEquiv.setCaption(ch.getCaption("odpowiednik")+":");
+        txaDefn.setCaption(ch.getCaption("definicja")+":");
+        txaExmpl.setCaption(ch.getCaption("przykład")+":");
     }
 
     private void setListeners() {
@@ -94,6 +97,7 @@ public class showDictionaryHandler extends showDictionary {
                 words = wm.getWordsByCategory(cat, profileId);
                 grdData.setItems(words);
             }
+            selectIfOneInGrid();
         });
 
         pnlDictionary.addShortcutListener(new ShortcutListener("Enter", ShortcutAction.KeyCode.ENTER, null) {
@@ -122,6 +126,7 @@ public class showDictionaryHandler extends showDictionary {
                             grdData.setItems(words);
                         }
                     }
+                    selectIfOneInGrid();
                 }
 
             }
@@ -134,17 +139,21 @@ public class showDictionaryHandler extends showDictionary {
         });
 
         grdData.addSelectionListener(event -> {
-            btnDetails.setEnabled(false);
+
             Set<Word> selected = event.getAllSelectedItems();
             selected.stream().findFirst().ifPresent(item -> {
-                btnDetails.setEnabled(true);
+                txaDefn.setValue(item.getDefn());
+                txaExmpl.setValue(item.getExmp());
             });
         });
 
-        btnDetails.addClickListener(e->{
+    }
 
-        });
-
+    private void selectIfOneInGrid() {
+        List<Word> sample = grdData.getDataCommunicator().fetchItemsWithRange(0,3);
+        if (sample.size()==1){
+            grdData.select(sample.get(0));
+        }
     }
 
     private void setDataProvider() {
