@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-panel caption="Your grama definitions:" size-full _id="pnlRules" :expand>
+    <vaadin-horizontal-layout size-full>
+     <vaadin-horizontal-split-panel split-position="32%" :expand>
+      <vaadin-vertical-layout spacing="false" size-full margin="false">
+       <vaadin-list-select style-name="small" size-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.GramaRule" _id="lstRules" :expand></vaadin-list-select>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-full margin-right="false">
+       <vaadin-form-layout margin="false">
+        <vaadin-text-field caption="category:" style-name="small" width-full readonly _id="txtCategory"></vaadin-text-field>
+        <vaadin-text-field caption="title:" style-name="small" width-full readonly _id="txtTitle"></vaadin-text-field>
+       </vaadin-form-layout>
+       <vaadin-vertical-layout size-full margin="false" :expand>
+        <vaadin-text-area caption="defintion:" size-full readonly _id="txtaDefinition"></vaadin-text-area>
+        <vaadin-text-area caption="example:" size-full readonly _id="txtaExample"></vaadin-text-area>
+       </vaadin-vertical-layout>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-split-panel>
+    </vaadin-horizontal-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
+ </body>
+</html>

@@ -21,7 +21,9 @@ public class examineWords extends BaseView {
 
         String[] categories = params.get(HE_Constants.ExamCategoryParam);
         String[] topics = params.get(HE_Constants.ExamTopicParam);
-        examineWords.init(categories, topics);
+        boolean revertedExam = params.containsKey(HE_Constants.ExamWordsRevert);
+
+        examineWords.init(categories, topics, revertedExam);
         examineWords.setSqlSession(sqlSF.openSession(false));
         examineWords.setLoggedUser(ls, (IDAO)ls.getLoginUserDAO());
         setContent(examineWords);

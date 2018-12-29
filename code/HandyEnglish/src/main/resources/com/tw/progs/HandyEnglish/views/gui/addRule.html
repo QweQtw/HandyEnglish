@@ -6,6 +6,26 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+  <vaadin-vertical-layout size-full>
+   <vaadin-panel caption="Add Grama rule" size-full _id="pnlMain" :expand>
+    <vaadin-vertical-layout size-full>
+     <vaadin-form-layout size-full :expand>
+      <vaadin-text-field required-indicator-visible caption="title:" style-name="small" width-full _id="txtTitle"></vaadin-text-field>
+      <vaadin-combo-box scroll-to-selected-item caption="category:" style-name="small" width-full tabindex="5" data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.GramaCategory" _id="cmbCategory"></vaadin-combo-box>
+      <vaadin-text-area required-indicator-visible caption="definition:" width-full _id="txtaDefn"></vaadin-text-area>
+      <vaadin-text-area caption="examples:" width-full _id="txtaExample"></vaadin-text-area>
+      <vaadin-horizontal-layout>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e762" style-name="friendly small" width="128px" tabindex="6" plain-text _id="btnSend">
+         send 
+       </vaadin-button>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e811" style-name="small danger" width="128px" tabindex="7" plain-text _id="btnReset">
+         reset 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+      <vaadin-vertical-layout height="199px" _id="tabDetails"></vaadin-vertical-layout>
+     </vaadin-form-layout>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
  </body>
 </html>

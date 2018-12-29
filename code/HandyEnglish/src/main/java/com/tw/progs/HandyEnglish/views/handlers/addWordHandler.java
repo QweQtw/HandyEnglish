@@ -102,7 +102,7 @@ public class addWordHandler extends addWord {
         });
 
         btnSend.addClickListener(event->{
-            Word word = assignCompValues();
+             Word word = assignCompValues();
 
             if (word.getId()<0){
                 tabDetails.removeAllComponents();

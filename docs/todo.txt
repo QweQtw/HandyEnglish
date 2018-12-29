@@ -1,3 +1,9 @@
 1. Podwójne zalogowania ze strony .../start -> jeżeli logged to redirect na mainPage
 2. addShortcutListener for enter press on start page
-3. wrd exam by category/topic/revert
+OK 3. wrd exam by category/topic/revert + dodać procenty na podsumowaniu testu
+
+
+IBAN: PL47 1030 0019 0109 8518 0534 6986
+Nazwa banku: Bank Handlowy w Warszawie S.A.
+Adres banku: ul. Senatorska 16, 00-923 Warszawa
+BIC/SWIFT: CITIPLPX

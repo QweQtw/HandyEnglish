@@ -84,26 +84,29 @@ public class tabWordExamHandler extends tabWordExam {
 
     private void calAmount() {
         //examSize = 0;
+        String revertParam = (chbRevert.getValue())?"&"+HE_Constants.ExamWordsRevert+"=1":"";
         if (catFilter.isPresent()&&topicFilter.isPresent()){
             examSize = wm.getWordsByTopicAndCat(catFilter.get().getId(), topicFilter.get().getId(), profileId).size();
-            examParm = "?"+HE_Constants.ExamCategoryParam+"="+catFilter.get().getId()+"&"+HE_Constants.ExamTopicParam+"="+topicFilter.get().getId();
+            examParm = "?"+HE_Constants.ExamCategoryParam+"="+catFilter.get().getId()
+                    +"&"+HE_Constants.ExamTopicParam+"="+topicFilter.get().getId()
+                    +revertParam;
             lblAmount.setValue(""+examSize);
         }else{
             if (catFilter.isPresent()){
                 examSize = wm.getWordsByCategory(catFilter.get().getId(), profileId).size();
-                examParm = "?"+HE_Constants.ExamCategoryParam+"="+catFilter.get().getId();
+                examParm = "?"+HE_Constants.ExamCategoryParam+"="+catFilter.get().getId()+revertParam;
                 lblAmount.setValue(""+examSize);
             }else
             if (topicFilter.isPresent()){
                 examSize = wm.getWordsByTopic(topicFilter.get().getId(), profileId).size();
-                examParm = "?"+HE_Constants.ExamTopicParam+"="+topicFilter.get().getId();
+                examParm = "?"+HE_Constants.ExamTopicParam+"="+topicFilter.get().getId()+revertParam;
                 lblAmount.setValue(""+examSize);
             }else{
                 examSize = 0;
                 examParm = "";
             }
         }
-        btnLaunch.setEnabled(examSize>0);
+        btnLaunch.setEnabled(examSize > 0);
     }
 
     private void redirection(String linkName) {

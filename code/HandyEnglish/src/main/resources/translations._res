@@ -12,12 +12,19 @@ Wypełnij poprawnie wszytkie pola;Please fill all fileds with correct values
 Twój słownik; Your dictionary
 kategoria;category
 słowo;word
+tytuł;title
 odpowiednik;equivalent
 definicja;definition
 przykład;example
 PODSUMOWANIE;SUMMARY
 Nie można pobrać danych do egzaminu;Cant load data for exam
 Błędne parametry examinu;Inavalid exam params
+Upewnij się że hasło składa się;Be sure that password consist of
+Niepoprawne dane rejestracyjne;Invalid registering data
+Nie można zarejestrować użytkownika! (Spróbuj później);User cant be registered right now (Try again later)
+Taki Użytkownik już istnieje;This user already exists
+Za słabe hasło;Password is too weak
+Twoje zasady gramatyczne;Yours grama definitions
 
 
 ---===;messages

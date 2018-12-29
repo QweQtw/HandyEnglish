@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 public class LoginError extends LoginErrorForm {
 
     public LoginError(@Autowired CaptionHolder ch, String err_msg) {
-        pnlLoginError.setCaption(err_msg);
-        lblMessage.setValue(ch.getCaption("sorry, dalej nie można"));
+        pnlLoginError.setCaption(ch.getCaption("sorry, dalej nie można"));
+        lblMessage.setValue(err_msg);
     }
 
     public LoginError(@Autowired CaptionHolder ch) {

@@ -68,6 +68,9 @@ public class mainPageHandler extends mainPage {
         btnAddWord.addClickListener(event->{
             redirection("addWord");
         });
+        btnAddRule.addClickListener(event->{
+            redirection("addRule");
+        });
 
         btnExam.addClickListener(event->{
             redirection("Exam");
@@ -76,6 +79,10 @@ public class mainPageHandler extends mainPage {
         btnShowDict.addClickListener(e->{
            redirection("showDictionary");
         });
+        btnShowRules.addClickListener(e->{
+            redirection("showRules");
+        });
+
         btnLogout.addClickListener(event->{
             ls.LogOut();
             redirection("start");

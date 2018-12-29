@@ -31,6 +31,7 @@ public class examineWordsHandler extends ExamineWords {
 
     private String[] categories;
     private String[] topics;
+    private boolean revertedExam;
     private SqlSession sqlSession;
     private String uriLocation;
     private LoginService loginService;
@@ -64,10 +65,11 @@ public class examineWordsHandler extends ExamineWords {
         rnd = new Random();
     }
 
-    public void init(String[] categories, String[] topics) {
+    public void init(String[] categories, String[] topics, boolean revertedExam) {
 
         this.categories = categories;
         this.topics = topics;
+        this.revertedExam = revertedExam;
     }
 
     public void setSqlSession(SqlSession openSession) {
@@ -142,13 +144,14 @@ public class examineWordsHandler extends ExamineWords {
     }
 
     private void checkValidity() {
-        if (txtAnswer.getValue().trim().equalsIgnoreCase(currentWord.getWord().trim())){
+        String goodValue = (revertedExam)?currentWord.getEqiv().trim():currentWord.getWord().trim();
+        if (txtAnswer.getValue().trim().equalsIgnoreCase(goodValue)){
             pkt = pkt + pktDelta;
             goodAns++;
             Notification.show("OK.", Notification.Type.TRAY_NOTIFICATION);
         }else{
             badAns++;
-            Notification.show("WRONG!\n\nYour answer:\n"+txtAnswer.getValue()+"\nGood answer:\n"+currentWord.getWord(), Notification.Type.ERROR_MESSAGE);
+            Notification.show("WRONG!\n\nYour answer:\n"+txtAnswer.getValue()+"\nGood answer:\n"+goodValue, Notification.Type.ERROR_MESSAGE);
         }
         finishStep();
     }
@@ -172,7 +175,8 @@ public class examineWordsHandler extends ExamineWords {
             int idx = (tmp > 1) ? rnd.nextInt(tmp) : 0;
             currentWord = examWordList.get(idx);
             pktDelta = 4;
-            txtEquiv.setValue(currentWord.getEqiv());
+            final String askedValue = (revertedExam)?currentWord.getWord():currentWord.getEqiv();
+            txtEquiv.setValue(askedValue);
         }else{
             Instant end = Instant.now();
             Integer durSec = (new Long(Duration.between(begin, end).toMillis() / 1000)).intValue();
@@ -188,6 +192,7 @@ public class examineWordsHandler extends ExamineWords {
                     .append("WYNIKI").append("\n")
                     .append("Wszytkich pytań").append(": "+overall).append("\n")
                     .append("dobrych odpowiedzi").append(": "+goodAns).append("\n").append("\n")
+                    .append("% dobrych odpowiedzi").append(": "+((goodAns/overall)*100)).append("\n").append("\n")
                     .append("Czas trawania testu").append(": "+durSec).append(" sec.")
                     .append("\n").append("\n").append("KONIEC.");
             Notification.show(sb.toString(), Notification.Type.ERROR_MESSAGE);

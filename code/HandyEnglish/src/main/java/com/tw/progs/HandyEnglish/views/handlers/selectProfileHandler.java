@@ -122,10 +122,10 @@ public class selectProfileHandler extends selectProfile {
                     loginService.LogIn(email,pass);
                     redirection("mainPage");
                 }else{
-                    reset(true, ch.getCaption("Upewnij się że hasło składa się ..."));
+                    reset(true, ch.getCaption("Za słabe hasło"));
                 }
             }else{
-                reset(true, ch.getCaption("Niepoprawne dane rejestracyjne!"));
+                reset(true, ch.getCaption("Niepoprawne dane rejestracyjne"));
             }
         });
 
@@ -142,7 +142,7 @@ public class selectProfileHandler extends selectProfile {
         txtLoginEmail.setValue("");
         pssLoginPass.setValue("");
 
-        txtRegisterEmail.setValue("");
+        //txtRegisterEmail.setValue("");
         pssRegisterPass.setValue("");
         pssRegisterRepeat.setValue("");
 

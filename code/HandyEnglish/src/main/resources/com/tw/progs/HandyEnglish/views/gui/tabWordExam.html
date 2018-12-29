@@ -8,13 +8,13 @@
  <body>
   <vaadin-vertical-layout size-full>
    <vaadin-panel caption="Set Word exam param:" size-full :expand>
-    <vaadin-vertical-layout spacing="false">
+    <vaadin-vertical-layout>
      <vaadin-combo-box scroll-to-selected-item caption="category:" style-name="small" text-input-allowed="false" width-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Category" _id="cmbCategory"></vaadin-combo-box>
      <vaadin-label style-name="bold small" plain-text>
        OR / AND 
      </vaadin-label>
      <vaadin-combo-box scroll-to-selected-item caption="topic:" style-name="small" text-input-allowed="false" width-full data-item-type="com.tw.progs.HandyEnglish.db.myBatis.dtos.Topic" _id="cmbTopic"></vaadin-combo-box>
-     <vaadin-check-box caption="Time limit" enabled="false" style-name="small" _id="chbTime"></vaadin-check-box>
+     <vaadin-check-box caption="Revert languages exam" style-name="small" _id="chbRevert"></vaadin-check-box>
      <vaadin-horizontal-layout>
       <vaadin-horizontal-layout>
        <vaadin-label style-name="small bold" plain-text _id="lblLabel" :middle>

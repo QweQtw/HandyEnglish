@@ -5,10 +5,10 @@ public class HE_Constants {
     public static final String WordsExamEndpoint = "Exam/words";
     public static final String ExamCategoryParam = "exmCat";
     public static final String ExamTopicParam = "exmTpc";
+    public static final String ExamWordsRevert = "exmWrv";
 
     /*
         EXAM TYPES
      */
     public static final String ExamTypes_Words = "words Exam";
-
 }
