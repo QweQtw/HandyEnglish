@@ -22,6 +22,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -145,10 +146,13 @@ public class examineWordsHandler extends ExamineWords {
 
     private void checkValidity() {
         String goodValue = (revertedExam)?currentWord.getEqiv().trim():currentWord.getWord().trim();
-        if (txtAnswer.getValue().trim().equalsIgnoreCase(goodValue)){
+        String [] goodValues = goodValue.split("[,;]");
+//        if(Arrays.stream(goodValues).filter(x->x.equalsIgnoreCase(txtAnswer.getValue().trim())).findFirst().isPresent()){
+//        if (txtAnswer.getValue().trim().equalsIgnoreCase(goodValue)){
+        if(Arrays.stream(goodValues).anyMatch(x->x.trim().equalsIgnoreCase(txtAnswer.getValue().trim()))){
             pkt = pkt + pktDelta;
             goodAns++;
-            Notification.show("OK.", Notification.Type.TRAY_NOTIFICATION);
+            Notification.show("OK: "+goodValue, Notification.Type.TRAY_NOTIFICATION);
         }else{
             badAns++;
             Notification.show("WRONG!\n\nYour answer:\n"+txtAnswer.getValue()+"\nGood answer:\n"+goodValue, Notification.Type.ERROR_MESSAGE);
@@ -192,7 +196,7 @@ public class examineWordsHandler extends ExamineWords {
                     .append("WYNIKI").append("\n")
                     .append("Wszytkich pytań").append(": "+overall).append("\n")
                     .append("dobrych odpowiedzi").append(": "+goodAns).append("\n").append("\n")
-                    .append("% dobrych odpowiedzi").append(": "+((goodAns/overall)*100)).append("\n").append("\n")
+                    .append("% dobrych odpowiedzi").append(": "+(int)((1d*goodAns/overall)*100)).append("\n").append("\n")
                     .append("Czas trawania testu").append(": "+durSec).append(" sec.")
                     .append("\n").append("\n").append("KONIEC.");
             Notification.show(sb.toString(), Notification.Type.ERROR_MESSAGE);

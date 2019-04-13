@@ -6,7 +6,6 @@ import com.tw.progs.HandyEnglish.db.myBatis.dtos.Topic;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.CategoriesMapper;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.TopicsMapper;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.WordsMapper;
-import com.tw.progs.HandyEnglish.global.EntitiesConfiguration;
 import com.tw.progs.HandyEnglish.global.HE_Constants;
 import com.tw.progs.HandyEnglish.tools.CaptionHolder;
 import com.tw.progs.HandyEnglish.views.gui.tabWordExam;
@@ -74,6 +73,7 @@ public class tabWordExamHandler extends tabWordExam {
         });
 
         btnLaunch.addClickListener(event->{
+            calAmount();
             if (examSize<=0||examParm.isEmpty()) {
                 Notification.show(ch.getCaption("Błędne parametry examinu")+"!", Notification.Type.ERROR_MESSAGE);
                 redirection("mainPage");

@@ -5,11 +5,17 @@
 
 	<groupId>com.tw.progs</groupId>
 	<artifactId>HandyEnglish</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>HandyEnglish</name>
 	<description>personalized english tutor</description>
+
+	<scm>
+		<connection>scm:svn:https://github.com/QweQtw/HandyEnglish.git</connection>
+		<developerConnection>scm:svn:https://github.com/QweQtw/HandyEnglish.git</developerConnection>
+		<url>https://github.com/QweQtw/HandyEnglish.git</url>
+	</scm>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
