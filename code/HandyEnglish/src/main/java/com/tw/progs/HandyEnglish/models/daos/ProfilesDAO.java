@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.time.ZonedDateTime;
-
 /**
  * Created by VCLERK on 22.03.2017.
  */
@@ -26,7 +24,7 @@ public class ProfilesDAO {
 
     public void saveProfile(Profile prof){
         pm.insertUser(prof);
-    };
+    }
 
     public Integer getDefUserAccountId(){
         return pm.findUserByeMail(defUserName).getId();

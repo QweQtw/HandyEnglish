@@ -1,6 +1,8 @@
 package com.tw.progs.HandyEnglish.db.myBatis.mappers;
 
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 
 @Mapper
 public interface TestSummaryMapper {

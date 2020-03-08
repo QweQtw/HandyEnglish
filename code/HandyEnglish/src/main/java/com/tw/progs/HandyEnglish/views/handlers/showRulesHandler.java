@@ -1,20 +1,19 @@
 package com.tw.progs.HandyEnglish.views.handlers;
 
-import com.tw.progs.HandyEnglish.db.myBatis.dtos.*;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.GramaCategory;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.GramaRule;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.GramaCategoriesMapper;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.GramaRulesMapper;
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.tools.CaptionHolder;
 import com.tw.progs.HandyEnglish.tools.LoginService;
-import com.tw.progs.HandyEnglish.views.gui.showDictionary;
 import com.tw.progs.HandyEnglish.views.gui.showRules;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.event.ShortcutListener;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinSession;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.TextField;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -24,7 +23,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)

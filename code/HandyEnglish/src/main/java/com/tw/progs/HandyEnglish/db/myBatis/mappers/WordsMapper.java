@@ -1,12 +1,9 @@
 package com.tw.progs.HandyEnglish.db.myBatis.mappers;
 
-import java.util.Collection;
-import java.util.List;
-
-import com.tw.progs.HandyEnglish.db.myBatis.dtos.Category;
+import com.tw.progs.HandyEnglish.db.myBatis.dtos.Word;
 import org.apache.ibatis.annotations.*;
 
-import com.tw.progs.HandyEnglish.db.myBatis.dtos.Word;
+import java.util.List;
 
 @Mapper
 public interface WordsMapper {

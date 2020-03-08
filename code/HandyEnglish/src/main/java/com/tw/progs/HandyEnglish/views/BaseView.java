@@ -1,7 +1,10 @@
 package com.tw.progs.HandyEnglish.views;
 
 import com.tw.progs.HandyEnglish.tools.LoginService;
-import com.vaadin.server.*;
+import com.vaadin.server.DefaultErrorHandler;
+import com.vaadin.server.ErrorHandler;
+import com.vaadin.server.Page;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +42,7 @@ public abstract class BaseView  extends UI{
             if (!Page.getCurrent().getLocation().getPath().contains(mainPath))
                 ls.showLoginWindow(Page.getCurrent().getLocation().toString(), true, this);
         }
-    };
+    }
 
     protected abstract void show(Map<String, String[]> params);
     public void refresh(){show(null);}

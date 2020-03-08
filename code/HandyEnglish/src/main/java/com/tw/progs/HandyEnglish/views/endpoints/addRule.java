@@ -3,7 +3,6 @@ package com.tw.progs.HandyEnglish.views.endpoints;
 import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.views.BaseView;
 import com.tw.progs.HandyEnglish.views.handlers.addRuleHandler;
-import com.tw.progs.HandyEnglish.views.handlers.addWordHandler;
 import com.vaadin.spring.annotation.SpringUI;
 import org.springframework.beans.factory.annotation.Autowired;
 

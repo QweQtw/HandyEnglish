@@ -3,7 +3,6 @@ package com.tw.progs.HandyEnglish.views.handlers;
 import com.tw.progs.HandyEnglish.HandyEnglishApplication;
 import com.tw.progs.HandyEnglish.db.myBatis.dtos.Profile;
 import com.tw.progs.HandyEnglish.db.myBatis.mappers.ProfilesMapper;
-import com.tw.progs.HandyEnglish.models.daos.IDAO;
 import com.tw.progs.HandyEnglish.models.daos.ProfilesDAO;
 import com.tw.progs.HandyEnglish.tools.*;
 import com.tw.progs.HandyEnglish.views.gui.LoginError;
